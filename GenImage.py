@@ -21,10 +21,11 @@ async def main(input_text):
 
 def open_new_window(event=None):
     input_text = entry.get()
-    entry.delete(0, END)
-    url_tag = asyncio.run(main(input_text))
-    if url_tag:
-        create_new_window(url_tag, input_text)
+    if input_text:
+        entry.delete(0, END)
+        url_tag = asyncio.run(main(input_text))
+        if url_tag:
+            create_new_window(url_tag, input_text)
 
 
 def create_new_window(url_tag, input_text):
